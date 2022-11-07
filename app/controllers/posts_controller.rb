@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.where(post_id: nil).order(created_at: :desc)
   end
 
   def show
