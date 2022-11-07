@@ -1,2 +1,29 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<% grouped_posts = @post.descendants.group_by{|p| p.post_id} %>
+
+
+Main post: <%= @post.main_post.to_json %> <br>
+Parent: <%= @post.post.to_json %> <br>
+Children: <%= @post.posts.to_json %> <br>
+Descendants: <%= @post.descendants.to_json %> <br>
+
+
+
+
+<% if @post.post_id %>
+  <div>
+    Comment to: <%= @post.post.title %> <%= link_to "Show", @post.post %>
+  </div>
+<% end %>
+
+
+<h1> <%= @post.title %> </h1>
+
+<div>
+  <%= @post.content %>
+</div>
+
+<h2> Comments </h2>
+
+<div>
+  <%= render partial: "comment", locals: {post: @post, post_list: grouped_posts} %>
+</div>

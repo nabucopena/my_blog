@@ -1,0 +1,10 @@
+<h3> <%= post.title %> <%= link_to "show", post %> </h3>
+<ul>
+  <% if post_list[post.id] %>
+    <% post_list[post.id].each do |child| %>
+      <li>
+        <%= render partial: "comment", locals: {post: child, post_list: post_list} %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
