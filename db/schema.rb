@@ -10,17 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_07_144329) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_07_165120) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.bigint "user_id", null: false
-    t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "main_post_id"
-    t.index ["main_post_id"], name: "index_posts_on_main_post_id"
-    t.index ["post_id"], name: "index_posts_on_post_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -31,7 +27,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_144329) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "posts", "posts"
-  add_foreign_key "posts", "posts", column: "main_post_id"
   add_foreign_key "posts", "users"
 end
