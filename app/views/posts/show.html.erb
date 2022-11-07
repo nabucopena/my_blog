@@ -1,7 +1,6 @@
 <% grouped_comments = @post.comments.group_by{|p| p.comment_id} %>
 
 
-Descendants: <%= @post.comments.to_json %> <br>
 
 
 

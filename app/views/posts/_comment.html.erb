@@ -2,8 +2,9 @@
   <% if comment_list[comment] %>
     <% comment_list[comment].each do |child| %>
       <li>
-        <h3> <%= child.user.username %> </h3> <br>
-        <p> <%= child.content %> <%= link_to "show", content %> </p>
+        <h3> <%= child.user.username %> </h3>
+        <p> <%= child.content %> </p>
+        <p> <%= link_to "comment", new_comment_path(post_id: child.post_id, comment_id: child.id) %> </p>
         <%= render partial: "comment", locals: {comment: child.id, comment_list: comment_list} %>
       </li>
     <% end %>

@@ -1,0 +1,6 @@
+<%= form_with model: @comment do |f| %>
+  <%= f.hidden_field :post_id %>
+  <%= f.hidden_field :comment_id %>
+  <%= f.text_field :content%>
+  <%= f.submit "comment" %>
+<% end %>
