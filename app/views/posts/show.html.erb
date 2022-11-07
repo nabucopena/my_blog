@@ -10,7 +10,7 @@ Descendants: <%= @post.comments.to_json %> <br>
 
 <div>
   <%= @post.content %> <br>
-  <%= link_to
+  <%= link_to "comment", new_comment_path(post_id: @post.id) %>
 </div>
 
 <h2> Comments </h2>
