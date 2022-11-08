@@ -10,7 +10,7 @@ class LoginsController < ApplicationController
       redirect_to posts_path
     else
       flash[:notice] = "Incorrect login."
-      render "new"
+      redirect_to login_path
     end
   end
 
