@@ -1,7 +1,7 @@
 <h1> <%= @post.title %>, by <%= @post.user.username %> </h1>
 
 <div>
-  <%= @post.content %> <br>
+  <%= simple_format(@post.content) %> <br>
   <%= link_to "comment", new_comment_path(post_id: @post.id) %>
 </div>
 
