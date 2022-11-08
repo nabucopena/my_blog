@@ -1,11 +1,4 @@
-<% grouped_comments = @post.comments.group_by{|p| p.comment_id} %>
-
-
-
-
-
-
-<h1> <%= @post.title %> </h1>
+<h1> <%= @post.title %>, by <%= @post.user.username %> </h1>
 
 <div>
   <%= @post.content %> <br>
@@ -15,5 +8,5 @@
 <h2> Comments </h2>
 
 <div>
-  <%= render partial: "comment", locals: {comment: nil, comment_list: grouped_comments} %>
+  <%= render partial: "comment", locals: {comment: nil, comment_list: @comments} %>
 </div>
