@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(create_comment_params)
-    @comment.user_id = 4
+    @comment.user_id = session[:current_user_id]
     if @comment.save
       redirect_to "/posts/#{@comment.post_id}"
     else

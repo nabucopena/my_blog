@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = 4
+    @post.user_id = session[:current_user_id]
     if @post.save
       redirect_to "/posts"
     else
